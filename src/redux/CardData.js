@@ -9,24 +9,28 @@ const CardData = [
     title: "Samsung",
     price: "399.76",
     image: samsung,
+    amount: 1,
   },
   {
     id: 2,
     title: "Iphone",
     price: "480.88",
     image: iphone,
+    amount: 1,
   },
   {
     id: 3,
     title: "Xiaomi",
     price: "287.44",
     image: mi,
+    amount: 1,
   },
   {
     id: 4,
     title: "Google Pixel",
     price: "343.33",
     image: gpixel,
+    amount: 1,
   },
 ];
 

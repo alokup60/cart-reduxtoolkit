@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { clearCart, calculateTotals } from "../redux/faetures/cartSlice";
 import Card from "./Card";
 
 const Cards = () => {
@@ -31,9 +32,12 @@ const Cards = () => {
           <div className="border w-full justify-center mx-auto mt-[2rem]"></div>
           <div className="w-full justify-between items-center flex mx-auto">
             <p className="font-semibold tracking-widest">Total</p>
-            <p className="font-semibold tracking-widest">${total}</p>
+            <p className="font-semibold tracking-widest">${total.toFixed(2)}</p>
           </div>
-          <button className="tracking-wider border-red-800 mt-4 border-2 rounded-md px-3 py-1 text-red-800 font-bold hover:bg-red-800 hover:text-white transition-all delay-150 ease-in-out">
+          <button
+            className="tracking-wider border-red-800 mt-4 border-2 rounded-md px-3 py-1 text-red-800 font-bold hover:bg-red-800 hover:text-white transition-all delay-150 ease-in-out"
+            onClick={() => dispatch(clearCart())}
+          >
             CLEAR CART
           </button>
         </div>

@@ -1,9 +1,12 @@
 import React from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
-import samImg from "../images/samsung.png";
+import { removeItems, increase, decrease } from "../redux/faetures/cartSlice";
+import { useDispatch } from "react-redux";
 
-const Card = ({ title, image, price }) => {
+const Card = ({ id, title, image, price, amount }) => {
+  const dispatch = useDispatch();
+  // console.log(amount);
   return (
     <div className="w-full">
       <div className="w-full flex justify-between items-center mx-auto">
@@ -14,16 +17,32 @@ const Card = ({ title, image, price }) => {
           <div className="flex flex-col">
             <h2 className="text-black font-semibold">{title}</h2>
             <p className="opacity-50 font-semibold">${price}</p>
-            <p className="tracking-widest font-semibold opacity-50 text-blue-500">
+            <button
+              className="tracking-widest font-semibold opacity-50 text-blue-500"
+              onClick={() => dispatch(removeItems(id))}
+            >
               remove
-            </p>
+            </button>
           </div>
         </div>
 
         <div className="flex flex-col gap-2 items-center ">
-          <FaAngleUp />
-          <p className="font-semibold">1</p>
-          <FaAngleDown />
+          <button onClick={() => dispatch(increase(id))}>
+            <FaAngleUp />
+          </button>
+
+          <p className="font-semibold">{amount}</p>
+          <button
+            onClick={() => {
+              if (amount === 1) {
+                dispatch(removeItems(id));
+                return;
+              }
+              dispatch(decrease({ id }));
+            }}
+          >
+            <FaAngleDown />
+          </button>
         </div>
       </div>
     </div>
