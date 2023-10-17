@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart, calculateTotals } from "../redux/faetures/cartSlice";
 import Card from "./Card";
+import Modal from "./Modal";
 
 const Cards = () => {
+  const [modal, setModal] = useState(false);
   const { cartItems, amount, total } = useSelector((state) => state.cart);
-
   const dispatch = useDispatch();
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
 
   return (
     <div className="w-full">
@@ -36,11 +41,15 @@ const Cards = () => {
           </div>
           <button
             className="tracking-wider border-red-800 mt-4 border-2 rounded-md px-3 py-1 text-red-800 font-bold hover:bg-red-800 hover:text-white transition-all delay-150 ease-in-out"
-            onClick={() => dispatch(clearCart())}
+            onClick={toggleModal}
+            // onClick={() => dispatch(clearCart())}
           >
             CLEAR CART
           </button>
         </div>
+      )}
+      {modal && (
+        <Modal modal={modal} setModal={setModal} toggleModal={toggleModal} />
       )}
     </div>
   );
