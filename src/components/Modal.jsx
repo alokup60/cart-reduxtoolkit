@@ -2,14 +2,15 @@ import React from "react";
 import "./Modal.css";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../redux/faetures/cartSlice";
+import { openModal, closeModal } from "../redux/faetures/modalSlice";
 
-const Modal = ({ modal, setModal, toggleModal }) => {
+const Modal = () => {
   const dispatch = useDispatch();
 
-  const deleteItems = () => {
-    dispatch(clearCart());
-    toggleModal();
-  };
+  // const deleteItems = () => {
+  //   dispatch(clearCart());
+  //   toggleModal();
+  // };
   return (
     <div className="w-full">
       <div className="modal relative">
@@ -20,13 +21,16 @@ const Modal = ({ modal, setModal, toggleModal }) => {
           </h2>
           <div className="flex justify-between">
             <button
-              onClick={deleteItems}
+              onClick={() => {
+                dispatch(clearCart());
+                dispatch(closeModal());
+              }}
               className="border rounded-md border-blue-500 tracking-widest px-2 py-1 text-blue-500 hover:bg-blue-500 hover:text-white transition-all delay-100 ease-in"
             >
               CONFIRM
             </button>
             <button
-              onClick={toggleModal}
+              onClick={() => dispatch(closeModal())}
               className="border rounded-md border-red-500 tracking-widest px-2 py-1 text-red-500 hover:bg-red-500 hover:text-white transition-all delay-100 ease-in"
             >
               CANCEL
