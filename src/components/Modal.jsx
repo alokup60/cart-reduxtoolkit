@@ -2,15 +2,11 @@ import React from "react";
 import "./Modal.css";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../redux/faetures/cartSlice";
-import { openModal, closeModal } from "../redux/faetures/modalSlice";
+import { closeModal } from "../redux/faetures/modalSlice";
 
 const Modal = () => {
   const dispatch = useDispatch();
 
-  // const deleteItems = () => {
-  //   dispatch(clearCart());
-  //   toggleModal();
-  // };
   return (
     <div className="w-full">
       <div className="modal relative">
