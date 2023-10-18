@@ -1,0 +1,14 @@
+@media screen and (max-width: 600px) {
+  .main-nav {
+    width: 100%;
+  }
+  .left-nav {
+    padding-left: 1.5rem;
+  }
+  .right-nav {
+    padding-right: 1rem;
+  }
+  .right-nav span {
+    right: 0.3rem;
+  }
+}

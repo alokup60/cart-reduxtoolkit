@@ -1,0 +1,14 @@
+@media screen and (max-width: 600px) {
+  .main-div {
+    width: 100%;
+  }
+  .sub-div {
+    width: 90%;
+  }
+  .border-style {
+    width: 90%;
+  }
+  .total-style {
+    width: 90%;
+  }
+}

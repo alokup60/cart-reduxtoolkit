@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { openModal, closeModal } from "../redux/faetures/modalSlice";
+import { openModal } from "../redux/faetures/modalSlice";
 import Card from "./Card";
+import "./Cards.css";
 
 const Cards = () => {
   const { cartItems, amount, total } = useSelector((state) => state.cart);
@@ -20,17 +21,17 @@ const Cards = () => {
           </h4>
         </div>
       ) : (
-        <div className="w-6/12 flex flex-col justify-center items-center mx-auto">
+        <div className="w-6/12 flex flex-col justify-center items-center mx-auto main-div">
           <h2 className="tracking-wider text-2xl font-bold mt-[2rem]">
             YOUR BAGS
           </h2>
-          <div className="w-full flex flex-col gap-8 justify-between items-center mx-auto">
+          <div className="w-full flex flex-col gap-8 justify-between items-center mx-auto sub-div">
             {cartItems.map((item) => {
               return <Card key={item.id} {...item} />;
             })}
           </div>
-          <div className="border w-full justify-center mx-auto mt-[2rem]"></div>
-          <div className="w-full justify-between items-center flex mx-auto">
+          <div className="border w-full justify-center mx-auto mt-[2rem] border-style"></div>
+          <div className="w-full justify-between items-center flex mx-auto total-style">
             <p className="font-semibold tracking-widest">Total</p>
             <p className="font-semibold tracking-widest">${total.toFixed(2)}</p>
           </div>
