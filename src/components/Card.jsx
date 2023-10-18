@@ -6,9 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Card = ({ img, title, id, price, amount }) => {
   const dispatch = useDispatch();
-  // const { img, title, id, price, amount } = useSelector((store) => store.cart);
 
-  // console.log(amount);
   return (
     <div className="w-full">
       <div className="w-full flex justify-between items-center mx-auto">

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { openModal } from "../redux/faetures/modalSlice";
 import { getCartItems, isLoading } from "../redux/faetures/cartSlice";
 import Card from "./Card";
-import Loading from "./Loading";
 import "./Cards.css";
 
 const Cards = () => {

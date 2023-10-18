@@ -16,13 +16,10 @@ function App() {
     dispatch(getCartItems());
   }, []);
 
-  // console.log(cartItems);
-
   useEffect(() => {
     dispatch(calculateTotals());
   }, [cartItems]);
 
-  // console.log("check", cartItems);
   if (isLoading) {
     return <Loading />;
   }
