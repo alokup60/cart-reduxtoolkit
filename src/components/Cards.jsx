@@ -13,7 +13,7 @@ const Cards = () => {
   return (
     <div className="w-full">
       {!amount ? (
-        <div className="w-6/12 flex flex-col justify-center items-center mx-auto gap-4 my-[8rem]">
+        <div className="w-6/12 flex flex-col justify-center items-center text-center mx-auto gap-4 my-[8rem]">
           <h2 className="tracking-wider text-2xl font-bold mt-[4rem]">
             YOUR BAG
           </h2>
@@ -28,8 +28,8 @@ const Cards = () => {
           </button>
         </div>
       ) : (
-        <div className="w-6/12 flex flex-col justify-center items-center mx-auto main-div">
-          <h2 className="tracking-wider text-2xl font-bold mt-[2rem]">
+        <div className="w-6/12 flex flex-col justify-center items-center mx-auto main-div mb-4">
+          <h2 className="tracking-wider text-2xl font-bold mb-4 mt-4">
             YOUR BAGS
           </h2>
           <div className="w-full flex flex-col gap-8 justify-between items-center mx-auto sub-div">
