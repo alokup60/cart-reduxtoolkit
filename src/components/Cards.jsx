@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { openModal } from "../redux/faetures/modalSlice";
+import { getCartItems, isLoading } from "../redux/faetures/cartSlice";
 import Card from "./Card";
+import Loading from "./Loading";
 import "./Cards.css";
 
 const Cards = () => {
-  const { cartItems, amount, total } = useSelector((state) => state.cart);
-
   const dispatch = useDispatch();
+  const { cartItems, amount, total } = useSelector((state) => state.cart);
 
   return (
     <div className="w-full">
@@ -19,6 +20,12 @@ const Cards = () => {
           <h4 className="font-semibold tracking-widest opacity-50">
             is currently empty!
           </h4>
+          <button
+            onClick={() => dispatch(getCartItems())}
+            className="border rounded-md border-violet-500 px-3 py-1 font-semibold text-lg text-violet-500 hover:bg-violet-500 hover:text-white transition-all duration-100 ease-in"
+          >
+            Refresh
+          </button>
         </div>
       ) : (
         <div className="w-6/12 flex flex-col justify-center items-center mx-auto main-div">

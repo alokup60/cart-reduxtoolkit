@@ -13,13 +13,16 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(calculateTotals());
-  }, [cartItems]);
-
-  useEffect(() => {
     dispatch(getCartItems());
   }, []);
 
+  // console.log(cartItems);
+
+  useEffect(() => {
+    dispatch(calculateTotals());
+  }, [cartItems]);
+
+  // console.log("check", cartItems);
   if (isLoading) {
     return <Loading />;
   }
